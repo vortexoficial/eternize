@@ -67,4 +67,29 @@
       )
       .join("");
   }
+
+  const related = document.querySelector("[data-product-related]");
+  if (related) {
+    const productIndex = window.ETERNIZE_PRODUCTS.findIndex((item) => item.slug === product.slug);
+    const pool = [
+      ...window.ETERNIZE_PRODUCTS.slice(productIndex + 1),
+      ...window.ETERNIZE_PRODUCTS.slice(0, productIndex),
+    ];
+    const relatedProducts = pool.slice(0, 3);
+
+    related.innerHTML = relatedProducts
+      .map(
+        (item) => `
+          <a class="product-related-card reveal" href="produto.html?produto=${item.slug}" style="--card-accent: ${item.accent}" aria-label="Ver página do produto ${item.title}">
+            <img src="${item.image}" alt="${item.alt}" loading="lazy" />
+            <div>
+              <span>${item.category}</span>
+              <strong>${item.title}</strong>
+              <p>${item.summary}</p>
+            </div>
+          </a>
+        `,
+      )
+      .join("");
+  }
 })();

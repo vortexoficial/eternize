@@ -90,7 +90,7 @@ const serviceCarouselGroup = document.querySelector("[data-service-carousel-grou
 
 // Stagger delays for grid children
 document.querySelectorAll(
-  ".service-grid .service-card, .services-all-grid .service-full-card, .goals-grid .goals-card, .process-grid .process-step"
+  ".service-grid .service-card, .services-all-grid .service-full-card, .goals-grid .goals-card, .process-grid .process-step, .product-proof-item, .product-related-card"
 ).forEach((el, i) => {
   el.style.setProperty("--reveal-delay", `${(i % 4) * 55}ms`);
 });
