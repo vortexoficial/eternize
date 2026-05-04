@@ -2268,12 +2268,14 @@ h3 {
 
   .process-step {
     margin-left: 62px;
+    overflow: visible;
   }
 
   .process-number {
     position: absolute;
     top: 22px;
     left: -62px;
+    z-index: 2;
   }
 
   .goals-showcase {
