@@ -1093,8 +1093,8 @@ h3 {
   padding: 140px max(24px, calc((100vw - 1180px) / 2)) 84px;
   color: var(--white);
   background:
-    linear-gradient(135deg, rgba(7, 27, 58, 0.96), rgba(2, 116, 188, 0.78)),
-    url("assets/site/portfolio-page-3.webp") center / cover;
+    radial-gradient(circle at 88% 12%, rgba(2, 116, 188, 0.42), transparent 34%),
+    linear-gradient(135deg, #06142a 0%, #0b315c 58%, #0274bc 100%);
 }
 
 .services-hero-copy {
@@ -1118,6 +1118,11 @@ h3 {
   color: rgba(255, 255, 255, 0.8);
   font-size: 1rem;
   line-height: 1.75;
+}
+
+.services-hero .hero-actions,
+.product-hero .hero-actions {
+  justify-content: flex-start;
 }
 
 .services-back-link {
