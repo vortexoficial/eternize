@@ -1870,7 +1870,9 @@ h3 {
   height: 72px;
   margin: 0 auto 28px;
   border-radius: 999px;
-  object-fit: cover;
+  object-fit: contain;
+  padding: 10px 20px;
+  background: var(--white);
 }
 
 .final-inner h2 {
