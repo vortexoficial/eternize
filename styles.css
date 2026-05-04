@@ -1686,80 +1686,54 @@ h3 {
 
 .process {
   position: relative;
-  display: grid;
-  grid-template-columns: minmax(0, 0.72fr) minmax(520px, 1fr);
-  gap: clamp(34px, 7vw, 92px);
-  align-items: center;
+  display: block;
   overflow: hidden;
   isolation: isolate;
   background:
-    radial-gradient(circle at 88% 16%, rgba(10, 166, 75, 0.16), transparent 28%),
-    linear-gradient(135deg, #f7fff9 0%, #ffffff 52%, #f1fbf5 100%);
-}
-
-.process::before {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background-image:
-    linear-gradient(rgba(10, 166, 75, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(10, 166, 75, 0.08) 1px, transparent 1px);
-  background-size: 72px 72px;
-  mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0.22), #000 64%, rgba(0, 0, 0, 0.32));
-  content: "";
+    radial-gradient(circle at 86% 12%, rgba(10, 166, 75, 0.14), transparent 28%),
+    linear-gradient(135deg, #f7fff9 0%, #ffffff 54%, #f2fbf5 100%);
 }
 
 .process .section-heading {
   position: relative;
   z-index: 1;
-  max-width: 620px;
-  margin-bottom: 0;
+  max-width: 760px;
+  margin-bottom: clamp(38px, 5vw, 62px);
 }
 
 .process .section-heading h2 {
-  font-size: clamp(2.4rem, 5.6vw, 5.8rem);
-  line-height: 0.98;
+  font-size: clamp(2.05rem, 4vw, 4.2rem);
+  line-height: 1.02;
 }
 
 .process-grid {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 18px;
   isolation: isolate;
 }
 
-.process-grid::before,
-.process-grid::after {
+.process-grid::before {
   position: absolute;
-  z-index: -1;
+  top: 48px;
+  right: 36px;
+  left: 36px;
+  z-index: 0;
+  height: 2px;
   background: linear-gradient(90deg, transparent, rgba(10, 166, 75, 0.28), transparent);
   content: "";
   pointer-events: none;
 }
 
-.process-grid::before {
-  top: 50%;
-  right: 28px;
-  left: 28px;
-  height: 1px;
-}
-
-.process-grid::after {
-  top: 28px;
-  bottom: 28px;
-  left: 50%;
-  width: 1px;
-  background: linear-gradient(180deg, transparent, rgba(10, 166, 75, 0.28), transparent);
-}
-
 .process-step {
   position: relative;
-  min-height: 250px;
+  z-index: 1;
+  min-height: 260px;
   overflow: hidden;
   border: 1px solid rgba(10, 166, 75, 0.13);
-  border-radius: 24px;
+  border-radius: 22px;
   padding: clamp(22px, 2.6vw, 30px);
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.88)),
@@ -1772,11 +1746,7 @@ h3 {
 }
 
 .process-step::before {
-  position: absolute;
-  inset: 0 0 auto;
-  height: 5px;
-  background: linear-gradient(90deg, var(--green), rgba(255, 196, 0, 0.9));
-  content: "";
+  display: none;
 }
 
 .process-step:hover {
@@ -1790,7 +1760,7 @@ h3 {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  margin-bottom: clamp(26px, 4vw, 42px);
+  margin-bottom: clamp(24px, 3vw, 34px);
 }
 
 .process-icon,
@@ -1804,27 +1774,28 @@ h3 {
 }
 
 .process-icon {
-  width: 56px;
-  height: 56px;
-  color: var(--white);
-  background:
-    linear-gradient(135deg, var(--green), #22c968);
-  box-shadow: 0 14px 32px rgba(10, 166, 75, 0.28);
+  width: 44px;
+  height: 44px;
+  color: var(--green);
+  background: #f0fbf4;
+  box-shadow: none;
 }
 
 .process-icon svg {
-  width: 25px;
-  height: 25px;
+  width: 21px;
+  height: 21px;
 }
 
 .process-number {
-  width: 34px;
-  height: 34px;
-  border: 1px solid rgba(10, 166, 75, 0.16);
-  color: var(--green);
-  background: #f4fbf6;
-  font-size: 0.84rem;
-  font-weight: 800;
+  order: -1;
+  width: 46px;
+  height: 46px;
+  border: 6px solid #f7fff9;
+  color: var(--white);
+  background: var(--green);
+  box-shadow: 0 14px 30px rgba(10, 166, 75, 0.24);
+  font-size: 0.9rem;
+  font-weight: 900;
 }
 
 .process-step h3 {
@@ -2095,7 +2066,6 @@ h3 {
   }
 
   .process {
-    grid-template-columns: 1fr;
     align-items: start;
   }
 
@@ -2106,6 +2076,10 @@ h3 {
   .goals-grid,
   .process-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .process-grid::before {
+    display: none;
   }
 
   .service-grid {
@@ -2287,14 +2261,34 @@ h3 {
     grid-template-columns: 1fr;
   }
 
-  .process-grid::before,
-  .process-grid::after {
-    display: none;
+  .process-grid {
+    position: relative;
+    gap: 18px;
+  }
+
+  .process-grid::before {
+    top: 18px;
+    bottom: 18px;
+    left: 23px;
+    display: block;
+    width: 2px;
+    height: auto;
+    background: linear-gradient(180deg, rgba(10, 166, 75, 0), rgba(10, 166, 75, 0.34), rgba(10, 166, 75, 0));
   }
 
   .goals-card,
   .process-step {
     min-height: auto;
+  }
+
+  .process-step {
+    margin-left: 62px;
+  }
+
+  .process-number {
+    position: absolute;
+    top: 22px;
+    left: -62px;
   }
 
   .goals-showcase {
@@ -2379,7 +2373,7 @@ h3 {
   }
 
   .process .section-heading h2 {
-    font-size: clamp(2rem, 11vw, 3.1rem);
+    font-size: clamp(1.85rem, 9vw, 2.7rem);
   }
 
   .process-step {
@@ -2388,8 +2382,8 @@ h3 {
   }
 
   .process-icon {
-    width: 50px;
-    height: 50px;
+    width: 42px;
+    height: 42px;
   }
 
   .experience-carousel .service-card {
